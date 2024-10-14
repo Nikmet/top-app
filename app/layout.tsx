@@ -10,7 +10,10 @@ const roboto: NextFont = Noto_Sans_KR({
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={`${roboto.className}`}>{children}</body>
+            <body className={`${roboto.className}`}>
+                <div>SITE</div>
+                {children}
+            </body>
         </html>
     );
 }
