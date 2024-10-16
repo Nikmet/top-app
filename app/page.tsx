@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import styles from "./page.module.css";
+import { Htag } from "@/components/Htag/Htag";
 
 export const metadata: Metadata = {
     title: "MyTop - наш лучший топ",
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-    return <main className={styles.main}>Main page</main>;
+    return (
+        <main className={styles.main}>
+            <Htag tag="h1">Main page</Htag>
+        </main>
+    );
 }
