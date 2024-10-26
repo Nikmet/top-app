@@ -12,5 +12,6 @@ export async function getMenu(firstCategory: number): Promise<IMenuItem[]> {
             revalidate: 10
         }
     });
+
     return res.json();
 }

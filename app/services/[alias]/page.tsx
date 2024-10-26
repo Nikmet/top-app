@@ -12,7 +12,7 @@ export async function generateStaticParams() {
     return menu.flatMap(item => item.pages.map(page => ({ alias: page.alias })));
 }
 
-export default async function CourseProducts({ params }: { params: { alias: string } }) {
+export default async function ServiceProducts({ params }: { params: { alias: string } }) {
     const page = await getPage(params.alias);
 
     if (!page) {

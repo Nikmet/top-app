@@ -12,7 +12,5 @@ export async function getPage(alias: string): Promise<ITopPageModel | null> {
         return null;
     }
 
-    console.log("revalidating page");
-
     return res.json();
 }
