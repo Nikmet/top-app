@@ -7,13 +7,16 @@ import cn from "classnames";
 import Link from "next/link";
 import React, { ReactNode, useState } from "react";
 import { SecondLevelMenu } from "./SecondLevelMenu";
+import { usePathname } from "next/navigation";
 
 export interface IFirstLevelMenuProps {
     SecondLevelMenu: ReactNode;
 }
 
 export const FirstLevelMenu = () => {
-    const [firstCategory, setFirstCategory] = useState<TopLevelCategory>();
+    const path = usePathname().split("/")[1];
+    const defaultCategory = firstLevelMenu.find(p => p.route == path)?.id ?? TopLevelCategory.Courses;
+    const [firstCategory, setFirstCategory] = useState<TopLevelCategory>(defaultCategory);
 
     const openFirstLevel = (openedCategory: TopLevelCategory) => {
         return () => {

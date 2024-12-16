@@ -19,6 +19,7 @@
 }
 .page {
     grid-area: page;
+    padding: 20px;
 }
 .footer {
     grid-area: footer;
