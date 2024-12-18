@@ -9,6 +9,7 @@ import styles from "./TopPage.module.css";
 import { HhData } from "@/components/HhData/HhData";
 import { Advantages } from "@/components/Advantages/Advantages";
 import { Sort } from "@/components/Sort/Sort";
+import { Product } from "@/components/Product/Product";
 
 export const metadata: Metadata = {
     title: "Страница"
@@ -39,7 +40,7 @@ export default async function CourseProducts({ params }: { params: { alias: stri
                 )}
                 <Sort />
             </div>
-            <div>{products && products.map(p => <div key={p._id}>{p.title}</div>)}</div>
+            <div>{products && products.map(p => <Product product={p} key={p._id} />)}</div>
 
             {page.hh && (
                 <>

@@ -3,7 +3,7 @@ import styles from "./Card.module.css";
 import cn from "classnames";
 
 export interface ICardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    color: "white" | "blue";
+    color?: "white" | "blue";
     children: ReactNode;
 }
 
