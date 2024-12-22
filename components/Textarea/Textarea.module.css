@@ -10,8 +10,26 @@
     line-height: 22px;
     font-family: var(--font-family);
     resize: none;
+    width: 100%;
+    height: 100%;
 }
 
 .input::placeholder {
     color: #a4a4a4;
+}
+
+.error {
+    border: 1px solid var(--red);
+}
+
+.textareaWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.errorMessage {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    color: var(--red);
 }

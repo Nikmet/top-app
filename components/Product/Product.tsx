@@ -12,6 +12,7 @@ import { declOfNum, priceRu } from "@/helpers/format";
 import { Divider } from "../Divider/Divider";
 import Image from "next/image";
 import Review from "../Review/Review";
+import ReviewForm from "../ReviewForm/ReviewForm";
 
 export interface IProductProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     product: IProductModel;
@@ -82,7 +83,11 @@ export const Product = ({ product }: IProductProps): JSX.Element => {
                 <Divider className={styles.hr} />
                 <div className={styles.actions}>
                     <Button appearance="primary">Узнать подробнее</Button>
-                    <Button appearance="ghost" arrow={isReviewOpened ? "down" : "right"} onClick={() => setIsReviewOpened(!isReviewOpened)}>
+                    <Button
+                        appearance="ghost"
+                        arrow={isReviewOpened ? "down" : "right"}
+                        onClick={() => setIsReviewOpened(!isReviewOpened)}
+                    >
                         Читать отзывы
                     </Button>
                 </div>
@@ -95,8 +100,12 @@ export const Product = ({ product }: IProductProps): JSX.Element => {
                 })}
             >
                 {product.reviews.map(r => (
-                    <Review review={r} key={r._id} />
+                    <div key={r._id}>
+                        <Review review={r} />
+                        <Divider />
+                    </div>
                 ))}
+                <ReviewForm productId={product._id} />
             </Card>
         </div>
     );

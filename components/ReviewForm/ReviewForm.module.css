@@ -1,0 +1,50 @@
+.reviewForm {
+    font-size: 14px;
+    line-height: 24px;
+    display: grid;
+    grid-template-columns: [start] auto 1fr auto [end];
+    padding: 20px 0;
+
+    gap: 20px 30px;
+}
+
+.description {
+    grid-column: start / end;
+    height: 130px;
+}
+
+.submit {
+    grid-column: start / end;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.title {
+    justify-self: start;
+}
+
+.rating {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.success {
+    background: var(--light-green);
+    padding: 20px;
+    position: relative;
+    border-radius: 5px;
+}
+
+.successTitle {
+    font-weight: 700;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+

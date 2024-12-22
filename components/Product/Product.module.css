@@ -156,5 +156,6 @@
 .opened {
     overflow: hidden;
     max-height: auto;
-    padding: 30px;
+    padding: 20px 30px;
 }
+
