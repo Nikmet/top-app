@@ -82,6 +82,10 @@
     line-height: 19px;
 }
 
+.ratingTitle {
+    color: var(--primary);
+}
+
 .month {
     font-size: 14px;
     line-height: 19px;

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
+import React, { DetailedHTMLProps, InputHTMLAttributes, useRef, useState } from "react";
 import styles from "./Product.module.css";
 import cn from "classnames";
 import { IProductModel } from "@/interfaces/product.interface";
@@ -20,6 +20,15 @@ export interface IProductProps extends DetailedHTMLProps<InputHTMLAttributes<HTM
 
 export const Product = ({ product }: IProductProps): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+    const reviewRef = useRef<HTMLDivElement>(null);
+
+    const scrollToReview = () => {
+        setIsReviewOpened(true);
+        reviewRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        })
+    }
 
     return (
         <div className={styles.products}>
@@ -52,7 +61,9 @@ export const Product = ({ product }: IProductProps): JSX.Element => {
                 <div className={styles.priceTitle}>цена</div>
                 <div className={styles.creditTitle}>кредит</div>
                 <div className={styles.ratingTitle}>
-                    {product.reviewCount} {declOfNum(product.reviewCount, ["отзыв", "отзыва", "отзывов"])}
+                    <a href="#ref" onClick={scrollToReview}>
+                        {product.reviewCount} {declOfNum(product.reviewCount, ["отзыв", "отзыва", "отзывов"])}
+                    </a>
                 </div>
                 <Divider className={styles.hr} />
                 <div className={styles.description}>{product.description}</div>
@@ -98,6 +109,7 @@ export const Product = ({ product }: IProductProps): JSX.Element => {
                     [styles.opened]: isReviewOpened,
                     [styles.closed]: !isReviewOpened
                 })}
+                ref={reviewRef}
             >
                 {product.reviews.map(r => (
                     <div key={r._id}>

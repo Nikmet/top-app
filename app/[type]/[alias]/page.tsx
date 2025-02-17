@@ -11,10 +11,14 @@ import { Advantages } from "@/components/Advantages/Advantages";
 import { Sort } from "@/components/Sort/Sort";
 import { Product } from "@/components/Product/Product";
 
-export const metadata: Metadata = {
-    title: "Страница"
-};
+export async function generateMetadata({ params }: { params: { alias: string } }): Promise<Metadata> {
+    const page = await getPage(params.alias);
+    return {
+        title: page?.metaTitle
+    };
+}
 
+// ЭТО НУЖНО ЧТОБЫ СГЕНЕРИРОВАТЬ СТАТИЧЕСКИЕ СТРАНИЦЫ!!!!!!! НА СЕРВЕРЕ
 export async function generateStaticParams() {
     const menu = await getMenu(0);
     return menu.flatMap(item => item.pages.map(page => ({ alias: page.alias })));
